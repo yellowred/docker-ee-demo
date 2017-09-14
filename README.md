@@ -47,6 +47,6 @@ Secure registry docs at  [https://docs.docker.com/registry/deploying/](https://d
 
 Push to the Registry via command line
 
-6. `docker tag demo-app:1.0.0 192.168.88.10:5000/demo-app:1.0.0`
-7. `docker push 192.168.88.10:5000/demo-app:1.0.0`
-
+6. `docker build -t viseo/data_api:1.0.1 data_api/`
+7. `docker tag viseo/data_api:1.0.1 192.168.88.10:5000/viseo/data_api:1.0.1`
+8. `docker push 192.168.88.10:5000/viseo/data_api:1.0.1`
