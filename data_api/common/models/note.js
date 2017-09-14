@@ -14,8 +14,6 @@ module.exports = function(Note) {
   );
   
   Note.random = (next) => {
-    console.log('111')
-    
     next(null, require('crypto').randomBytes(256).toString('hex'))
   }
   
