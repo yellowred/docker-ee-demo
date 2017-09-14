@@ -1,0 +1,47 @@
+version: '2'
+services:
+
+
+  mongo:
+    container_name: mongo
+    image: mongo:3.2.6
+    network_mode: host
+    restart: always
+    ports:
+      - "27017:27017"
+    command: [mongod, --smallfiles]
+
+
+  data_api:
+    container_name: data_api
+    image: viseo/data_api:1.0.0
+    build:
+      context: ./data_api
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8080:8080"
+    network_mode: host
+  
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:4.2.0
+    network_mode: host
+    restart: always
+    ports:
+      - "8086:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+
+
+  prometheus:
+    container_name: prometheus
+    image: viseo/prometheus:latest
+    build:
+      context: ./prometheus
+      dockerfile: Dockerfile
+    network_mode: host
+    ports:
+      - "9090:9090"
+    restart: always

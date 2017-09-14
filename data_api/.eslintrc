@@ -1,0 +1,26 @@
+{
+  "extends": "eslint:recommended",
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 8,
+    "ecmaFeatures": {
+        "jsx": true,
+        "experimentalObjectRestSpread": true
+    }
+  },
+  "globals": {
+    "describe": true,
+    "beforeEach": true,
+    "before": true,
+    "afterEach": true,
+    "it": true
+  },
+  "rules": {
+    "no-empty-pattern": "off",
+    "no-useless-escape": "off"
+  }
+}
